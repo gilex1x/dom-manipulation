@@ -1,5 +1,9 @@
 :root {
-  --main-green: #97ce4c;
+  --main-green: #6fc41c;
+  --dark-green: #448a32;
+  --secondary-green: #9ecb0e;
+  --tiny-green: #92c752;
+  --main-blue: #1a2248;
 }
 
 html {
@@ -10,7 +14,7 @@ body {
   margin: 0px;
   padding: 0;
   box-sizing: border-box;
-  color: var(--black);
+  color: var(--main-blue);
   font-family: "Ubuntu", sans-serif;
   font-size: 24px;
 }
@@ -26,12 +30,16 @@ body {
 
 .card {
   border: solid 1px;
-  background: var(--main-green);
+  background: var(--tiny-green);
   border-radius: 12px;
   margin: 8px 4px;
   padding: 8px;
   text-align: center;
-  max-width: 25vw;
-  max-height: 420px;
-  min-height: 420px;
+  width: 25vw;
+  height: 420px;
+}
+
+.card img{
+    height: 300px;
+    border-radius: 12px;
 }
