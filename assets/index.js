@@ -2,9 +2,15 @@ const baseurl = "https://rickandmortyapi.com/api";
 let container = document.getElementById("main-content");
 let results = [];
 
+container.addEventListener("click", (event) => {
+  event.target.nodeName == "H3" &&
+    console.log("Click desde", event.target.className);
+});
+
 const createNodeElement = (item) => {
   const nodeCard = document.createElement("div");
   nodeCard.className = "card";
+  nodeCard.id = `${item.name.replace(/ /g, "-")}`;
   const nodeItem = document.createElement("h3");
   const nodeImage = document.createElement("img");
   nodeImage.loading = "lazy";
