@@ -5,10 +5,8 @@ const isVisible = (entry) => {
 //la acción que se ejecuta al ser visible mi elemento
 const loadImage = (entri) => {
   const card = entri.target;
-  const imageNode = card.querySelector("img");
-  //debugger;
-  console.log(imageNode.dataset.src);
-  imageNode.src = imageNode.dataset.src;
+  const imageNode = card.shadowRoot.querySelector("img");
+  imageNode.src = card.image;
 
   //remover observer
   observer.unobserve(card);
