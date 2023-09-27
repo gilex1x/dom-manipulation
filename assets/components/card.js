@@ -6,7 +6,7 @@ class characterCard extends HTMLElement {
     }
     //Añadimos un observador de los atributos
     static get observedAttributes() {
-        return ["name", "image","status","id"];
+        return ["name", "image","status","id","location"];
     }
 
     render() {
@@ -17,12 +17,13 @@ class characterCard extends HTMLElement {
     getTemplate() {
         let template = document.createElement("template");
         template.innerHTML = `
-            <div class="card-container" id="${this.id}">
+            <div class="card-container" id="${this.id}-id">
                 <div class="wrapper">
                     <img src="" loading="lazy" alt="${this.name}-image"/>
                 </div>
                 <div class="card-info-container">
                 <h3>${this.name}</h3>
+                <span>${this.location}</span>
                 <span>${this.status}</span>
                 </div>
             </div>
@@ -91,7 +92,10 @@ class characterCard extends HTMLElement {
     
       disconnectedCallback(){
         console.log('El elemento ha sido removido con exito!');
+        let child=this.shadowRoot.querySelector(`.card-container`)
+        //debugger;
         //Aca removemos las referencias y eventos para liberar memoria 
+        this.shadowRoot.removeChild(child);
       }
 }
 

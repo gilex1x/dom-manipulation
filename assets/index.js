@@ -19,8 +19,10 @@ loadButton.addEventListener("click", (event) => {
 const createNodeElement = (item) => {
   const nodeCard = document.createElement("character-card");
   nodeCard.name=item.name;
+  nodeCard.id=item.name;
   nodeCard.image=item.image;
   nodeCard.status=item.status;
+  nodeCard.location=item.location.name;
   addImage(nodeCard);
   return nodeCard;
 };
@@ -30,9 +32,8 @@ const getData = async () => {
     .then((res) => res.json())
     .then((data) => {
       data.results.forEach((element) => {
-        results.push(createNodeElement(element));
+        container.appendChild(createNodeElement(element));
       });
-      container.append(...results);
     });
 };
 
